@@ -1,0 +1,32 @@
+#button-class {
+    display: flex;
+    background-color: rgb(160, 218, 238);
+    border: mediumslateblue solid;
+    border-radius: 25px;
+}
+button {
+margin: 1em;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.dice-box {
+    display: flex;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+background-color: rgb(225, 207, 240);
+border: magenta solid;
+border-radius: 25px;
+margin: 1em;
+}
+
+#dice-container {
+    margin: 10px;
+}
+
+body {
+    background-color: rgb(211, 250, 203);
+}
+
