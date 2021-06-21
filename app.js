@@ -28,14 +28,13 @@ class Die {
 
   createArr() {
     dieArr.push(this);
+    console.log(dieArr);
   }
   removeDie() {
-    this.div.addEventListener("dblclick", function () {
-      this.remove();
-      //didnt finish figuring out how to remove array item in time for sum dice 
-      // for (let x = 0; x < dieArr.length; x++) {
-      //   dieArr.splice(x, 1);
-      // }
+    this.div.addEventListener("dblclick", () => {
+      diceContainer.removeChild(this.div)
+      dieArr.splice(dieArr.indexOf(this), 1);
+  
     });
   }
   changeDieValue() {
