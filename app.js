@@ -12,8 +12,10 @@ class Die {
     this.div.className = "dice-box";
     this.roll();
     this.createArr();
+    this.removeDie();
     diceContainer.appendChild(this.div);
-  }
+    
+};
 
   roll() {
     counter = Math.floor(Math.random() * 6);
@@ -25,6 +27,11 @@ class Die {
 
   createArr() {
     dieArr.push(this);
+  }
+  removeDie() {
+    this.div.addEventListener("dblclick", function () {
+      this.remove();
+    })
   }
 };
 
@@ -41,15 +48,16 @@ rollButton.addEventListener("click", () => {
 
 
 
-// sumButton.addEventListener("click", () => {
+sumButton.addEventListener("click", () => {
   
-//   function getSum() {
-//     let sum = 0;
-//     for (let i = 0; i < dieArr.length; i++)
-//     {
-//       sum += counter;
-//     }
-//     alert(sum);   
-//   }
-//   getSum();
-// })
+  function getSum() {
+    let sum = 0;
+    for (let i = 0; i < dieArr.length; i++)
+    { 
+      sum += dieArr[i]
+      // sum += counter;
+    }
+    alert(sum);   
+  }
+  getSum();
+})
