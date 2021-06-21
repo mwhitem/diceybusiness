@@ -5,6 +5,7 @@ let sumButton = document.getElementById("sum-dice");
 let dieArr = [];
 counter = 0;
 
+
 class Die {
   constructor() {
     this.div = document.createElement("div");
@@ -13,9 +14,9 @@ class Die {
     this.roll();
     this.createArr();
     this.removeDie();
+    this.changeDieValue();
     diceContainer.appendChild(this.div);
-    
-};
+  }
 
   roll() {
     counter = Math.floor(Math.random() * 6);
@@ -31,9 +32,23 @@ class Die {
   removeDie() {
     this.div.addEventListener("dblclick", function () {
       this.remove();
-    })
+      //didnt finish figuring out how to remove array item in time for sum dice 
+      // for (let x = 0; x < dieArr.length; x++) {
+      //   dieArr.splice(x, 1);
+      // }
+    });
   }
-};
+  changeDieValue() {
+    this.div.addEventListener("click", () => {
+    counter = Math.floor(Math.random() * 6);
+    counter++;
+    this.value = counter;
+    this.div.id = counter;
+    this.div.innerText = this.value;
+  });
+  }
+  
+}
 
 getButton.addEventListener("click", () => {
   let die = new Die();
@@ -46,18 +61,13 @@ rollButton.addEventListener("click", () => {
   }
 });
 
-
-
 sumButton.addEventListener("click", () => {
-  
   function getSum() {
     let sum = 0;
-    for (let i = 0; i < dieArr.length; i++)
-    { 
-      sum += dieArr[i]
-      // sum += counter;
+    for (let i = 0; i < dieArr.length; i++) {
+      sum += dieArr[i].value;
     }
-    alert(sum);   
+    alert(sum);
   }
   getSum();
-})
+});
